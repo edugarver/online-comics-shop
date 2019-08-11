@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../logo.png';
 import styled from 'styled-components';
-import {ButtonContainer} from './Button';
+import { ButtonContainer } from './Button';
 
 export default class Navbar extends Component {
     render() {
@@ -15,6 +15,11 @@ export default class Navbar extends Component {
                     <li className="nav-item ml-5">
                         <Link to="/" className="nav-link">
                             products
+                        </Link>
+                    </li>
+                    <li className="nav-item ml-5">
+                        <Link to="/orders" className="nav-link">
+                            orders
                         </Link>
                     </li>
                 </ul>

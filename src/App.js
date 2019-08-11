@@ -4,8 +4,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductLlist';
-import Details from './components/Details';
 import Cart from './components/Cart';
+import OrderSuccessful from './components/OrderSuccessful';
+import Order from './components/Order';
 import Default from './components/Default';
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={ProductList} />
-        <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
+        <Route path="/order-successful" component={OrderSuccessful} />
+        <Route path="/orders" component={Order} />
         <Route component={Default} />
       </Switch>
     </React.Fragment>

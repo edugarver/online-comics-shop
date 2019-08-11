@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { storeProducts, detailProduct } from './data';
 import { storeProducts } from './data';
 
 const ProductContext = React.createContext();
@@ -8,6 +7,8 @@ class ProductProvider extends Component {
     state = {
         products: [],
         cart: [],
+        orders: [],
+        lastOrder: null,
         cartTotal: 0
     }
 
@@ -36,7 +37,6 @@ class ProductProvider extends Component {
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
         product.inCart = true;
-        product.count = 1;
         const price = product.price;
         product.total = price;
         this.setState(() => {
@@ -54,7 +54,6 @@ class ProductProvider extends Component {
         const index = tempProducts.indexOf(this.getItem(id));
         let removedProduct = tempProducts[index];
         removedProduct.inCart = false;
-        removedProduct.count = 0;
         removedProduct.total = 0;
 
         this.setState(() => {
@@ -78,6 +77,47 @@ class ProductProvider extends Component {
         });
     }
 
+    placeOrder = () => {
+        let tempOrders = [...this.state.orders];
+        let tempCart = [...this.state.cart];
+        let tempLastOrder = this.state.lastOrder;
+
+        // form the summary
+        let summary = "";
+        for (var i = 0; i < tempCart.length - 1; i++) {
+            summary += tempCart[i].title + ", ";
+        }
+        summary += tempCart[tempCart.length - 1].title;
+
+        //calculate the id for the new order
+        let tempId = 1;
+        if (tempLastOrder !== null) {
+            tempId = tempLastOrder.id + 1;
+        }
+
+        // build and push the order
+        tempLastOrder = { id: tempId, orderSummary: summary, products: tempCart };
+        tempOrders.push(tempLastOrder);
+        this.setState(() => {
+            return {
+                orders: [...tempOrders],
+                lastOrder: tempLastOrder
+            };
+        }, () => {
+            this.clearCart();
+        });
+    }
+
+    removeOrder = id => {
+        let tempOrders = [...this.state.orders];
+        tempOrders = tempOrders.filter(item => item.id !== id);
+        this.setState(() => {
+            return {
+                orders: [...tempOrders]
+            }
+        })
+    }
+
     addTotals = () => {
         let total = 0;
         this.state.cart.map(item => (total += item.total));
@@ -87,16 +127,16 @@ class ProductProvider extends Component {
             }
         })
     }
+
     render() {
         return (
             <ProductContext.Provider value={{
                 ...this.state,
-                // handleDetail: this.handleDetail,
                 addToCart: this.addToCart,
-                // increment: this.increment,
-                // decrement: this.decrement,
                 removeItem: this.removeItem,
-                clearCart: this.clearCart
+                clearCart: this.clearCart,
+                placeOrder: this.placeOrder,
+                removeOrder: this.removeOrder
             }}>
                 {this.props.children}
             </ProductContext.Provider>
