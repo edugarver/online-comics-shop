@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { storeProducts } from './data';
+import ls from 'local-storage';
 
 const ProductContext = React.createContext();
 
@@ -14,6 +15,10 @@ class ProductProvider extends Component {
 
     componentDidMount() {
         this.setProducts();
+        this.setState({
+            orders: ls.get('orders') || [],
+            lastOrder: ls.get('lastOrder')
+        });
     }
 
     setProducts = () => {
@@ -98,6 +103,8 @@ class ProductProvider extends Component {
         // build and push the order
         tempLastOrder = { id: tempId, orderSummary: summary, products: tempCart };
         tempOrders.push(tempLastOrder);
+        ls.set('orders', [...tempOrders]);
+        ls.set('lastOrder', tempLastOrder);
         this.setState(() => {
             return {
                 orders: [...tempOrders],
