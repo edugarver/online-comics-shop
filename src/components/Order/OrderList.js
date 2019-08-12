@@ -16,6 +16,7 @@ export default function OrderList({ value }) {
       {filteredOrders.map(item => {
         return <OrderItem key={item.id} item={item} value={value} />
       })}
+      <span>Search order: </span>
       <input type="text" value={search} onChange={updateSearch.bind(this)} />
     </div>
   )
