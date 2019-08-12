@@ -13,23 +13,22 @@ export default function OrderItem({ item, value }) {
           </div>
         </td>
         <td>
-          <div className="col-10 mx-auto col-lg-3>">
-            <ul>
+          <div className="mx-auto col-lg-6>">products
+            <ul class="list-group">
               {
                 products.map(product => {
-                  return <li>{product.title}</li>
+                  return <li class="list-group-item"><img src={product.img} style={{ width: '5rem', height: '5rem' }} className="img-fluid" alt="product" /> {product.title}</li>
                 })
               }
             </ul>
           </div>
         </td>
         <td>
-          <div className="col-10 mx-auto col-lg-3">
+          <div className="col-10 mx-auto col-lg-3">remove
             <Link to="/">
-              <button className="btn btn-outline-danger text-uppercase mb-3 px-5"
-                type="button"
-                onClick={() => removeOrder(id)}
-              >cancel order</button>
+              <div className="cart-icon" onClick={() => removeOrder(id)}>
+                <i className="fas fa-trash"></i>
+              </div>
             </Link>
           </div>
         </td>
