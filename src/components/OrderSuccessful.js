@@ -12,9 +12,11 @@ export default function OrderSuccessful() {
           const { lastOrder } = value;
           return (
             <React.Fragment>
-              <Title name="order" title="successful"></Title>
-              <OrderColumns />
-              <OrderItem key={lastOrder.id} item={lastOrder} value={value} />
+              <div className="order-successful">
+                <Title name="order" title="successful"></Title>
+                <OrderColumns />
+                <OrderItem key={lastOrder.id} item={lastOrder} value={value} />
+              </div>
             </React.Fragment>
           );
         }}

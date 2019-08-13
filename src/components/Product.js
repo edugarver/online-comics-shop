@@ -4,7 +4,7 @@ import { ProductConsumer } from '../context';
 
 export default class Product extends Component {
   render() {
-    const { id, title, img, price, inCart } = this.props.product;
+    const { id, title, formattedTitle, img, price, inCart } = this.props.product;
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3" >
         <div className="card">
@@ -13,7 +13,8 @@ export default class Product extends Component {
               <div className="img-container p-5">
                 <img src={img} alt="product" className="card-img-top" />
                 <button
-                  className="cart-btn"
+                  autoclass={formattedTitle}
+                  className="cart-btn" 
                   disabled={inCart ? true : false}
                   onClick={() => {
                     value.addToCart(id);

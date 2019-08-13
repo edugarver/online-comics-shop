@@ -6,9 +6,9 @@ export default function OrderItem({ item, value }) {
   const { removeOrder } = value;
   return (
     <div>
-      <div className="row my-2 text-capitalize text-center">
-        <div className="col-10 mx-auto col-lg-1">
-          <span className="d-lg-none"></span> {id}
+      <div className="row my-2 text-capitalize text-center order" autoclass={id}>
+        <div className="col-10 mx-auto col-lg-1 order-id">
+          <span className="d-lg-none"></span>{id}
         </div>
         <div className="mx-auto col-lg-6>">
           <ul class="list-group">

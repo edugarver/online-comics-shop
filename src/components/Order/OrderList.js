@@ -17,7 +17,7 @@ export default function OrderList({ value }) {
         return <OrderItem key={item.id} item={item} value={value} />
       })}
       <span>Search order: </span>
-      <input type="text" value={search} onChange={updateSearch.bind(this)} />
+      <input type="text" className="search-field" value={search} onChange={updateSearch.bind(this)} />
     </div>
   )
 }
