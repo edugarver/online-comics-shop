@@ -24,7 +24,7 @@ In the shopping cart, product information is displayed, as well as a 'Remove' bu
 'Clear cart' will remove all products from the cart, while 'Place order' will continue with the shopping process
 ![screenshot2](https://user-images.githubusercontent.com/28511092/63047359-985bad80-bed4-11e9-9b74-89048331c486.png)
 
-After clicking the 'Place order' button, we will get the message that the order was successfully placed, as well as the 'Order ID' (5)
+After clicking the 'Place order' button, we will get the message that the order was successfully placed, as well as the 'Order ID' (5)<br >
 ![screenshot3](https://user-images.githubusercontent.com/28511092/63047363-998cda80-bed4-11e9-8b22-bd8a3f498302.png)
 
 Clicking in the 'Orders' link in the navbar (6) will display the Orders page. In here, we can filter the orders by the Order ID, typing it in the search field (7), as we as cancel the order by clicking on the 'Remove' button (8).
