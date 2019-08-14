@@ -1,8 +1,8 @@
 import React from 'react'
-import Title from './Title'
-import { ProductConsumer } from '../context'
-import OrderItem from './Order/OrderItem'
-import OrderColumns from './Order/OrderColumns';
+import Title from '../Title'
+import { ProductConsumer } from '../../context'
+import OrderItem from './OrderItem'
+import OrderColumns from './OrderColumns';
 
 export default function OrderSuccessful() {
   return (

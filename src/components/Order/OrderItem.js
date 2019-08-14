@@ -20,7 +20,7 @@ export default function OrderItem({ item, value }) {
           </ul>
         </div>
         <div className="col-10 mx-auto col-lg-3">remove
-            <Link to="/">
+            <Link to="/order-deleted">
             <div className="cart-icon" onClick={() => removeOrder(id)}>
               <i className="fas fa-trash"></i>
             </div>
