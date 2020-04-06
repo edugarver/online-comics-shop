@@ -1,6 +1,6 @@
 # ONLINE COMICS SHOP
 
-This is the web app. It was done using React and it's accessible in [https://edugarver-scc-homework-senior-qre.netlify.com/](https://edugarver-scc-homework-senior-qre.netlify.com/)
+This is the web app. It was done using React and it's accessible in [https://online-comics-shop.netlify.com/](https://online-comics-shop.netlify.com/)
 
 ### deploy locally
 Checkout the project, and in the app folder execute:
