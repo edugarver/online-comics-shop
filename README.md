@@ -1,4 +1,4 @@
-# scc-homework-senior-qre
+# ONLINE COMICS SHOP
 
 This is the web app. It was done using React and it's accessible in [https://edugarver-scc-homework-senior-qre.netlify.com/](https://edugarver-scc-homework-senior-qre.netlify.com/)
 
